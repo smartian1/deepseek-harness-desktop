@@ -29,9 +29,11 @@
     "vitest": "^3.2.4"
   },
   "build": {
-    "nsis": {
-      "languages": {
-        "1033": "English"
+    "win": {
+      "nsis": {
+        "languages": {
+          "1033": "English"
+        }
       }
     }
   }
