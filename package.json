@@ -27,5 +27,12 @@
     "electron-builder": "^26.0.12",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
+  },
+  "build": {
+    "nsis": {
+      "languages": {
+        "1033": "English"
+      }
+    }
   }
 }
