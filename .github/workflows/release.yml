@@ -35,13 +35,13 @@ jobs:
     env:
       CSC_IDENTITY_AUTO_DISCOVERY: "false"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
         with:
           version: 10
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: pnpm
@@ -52,8 +52,23 @@ jobs:
       - name: Prepare sidecar runtime
         run: pnpm prepare:runtime
 
+      - name: Disable Spotlight indexing (avoid hdiutil "Resource busy")
+        if: runner.os == 'macOS'
+        run: sudo mdutil -a -i off
+
       - name: Build
-        run: npx tsc -p tsconfig.json && npx electron-builder ${{ matrix.args }} --publish never
+        shell: bash
+        run: |
+          npx tsc -p tsconfig.json
+          for attempt in 1 2 3; do
+            echo "Build attempt $attempt"
+            if npx electron-builder ${{ matrix.args }} --publish never; then
+              exit 0
+            fi
+            echo "Build failed, retrying in 30s"
+            sleep 30
+          done
+          exit 1
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
