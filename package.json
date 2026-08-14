@@ -14,6 +14,7 @@
     "dev": "tsc -p tsconfig.json && electron .",
     "build": "tsc -p tsconfig.json && electron-builder --win nsis --x64",
     "build:win": "tsc -p tsconfig.json && electron-builder --win nsis --x64",
+    "build:mac": "tsc -p tsconfig.json && electron-builder --mac dmg --x64",
     "typecheck": "tsc -p tsconfig.json --pretty false",
     "test": "vitest run",
     "test:watch": "vitest"

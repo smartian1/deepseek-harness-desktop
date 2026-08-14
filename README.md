@@ -81,6 +81,27 @@ pnpm build:win
 
 Output: `release/DeepSeek-Harness-Setup-0.1.0-win-x64.exe`
 
+macOS (build on a Mac):
+
+```sh
+pnpm install
+pnpm prepare:runtime
+pnpm build:mac
+```
+
+Output: `release/DeepSeek-Harness-0.1.0-mac-x64.dmg`
+
+### GitHub Releases
+
+Pushing a `v*` tag builds Windows x64 / macOS x64 / macOS arm64 installers on GitHub Actions and publishes them to a GitHub Release:
+
+```powershell
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+See `.github/workflows/release.yml`. Note: the app is not Apple-signed or notarized, so macOS users must allow it in System Settings → Privacy & Security (or right-click → Open) on first launch.
+
 ---
 
 ## For contributors

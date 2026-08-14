@@ -81,6 +81,27 @@ pnpm build:win
 
 产物：`release/DeepSeek-Harness-Setup-0.1.0-win-x64.exe`
 
+macOS（需在 Mac 上构建）：
+
+```sh
+pnpm install
+pnpm prepare:runtime
+pnpm build:mac
+```
+
+产物：`release/DeepSeek-Harness-0.1.0-mac-x64.dmg`
+
+### GitHub Releases 自动发布
+
+推送 `v*` 标签会自动在 Windows x64 / macOS x64 / macOS arm64 三个平台上构建，并把安装包发布到 GitHub Release：
+
+```powershell
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+工作流见 `.github/workflows/release.yml`。注意：包未做 Apple 代码签名和公证，macOS 用户首次打开需要在「系统设置 → 隐私与安全性」中允许，或右键选择「打开」。
+
 ---
 
 ## 给要改代码的人
