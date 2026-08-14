@@ -46,8 +46,9 @@ nsis:
   createStartMenuShortcut: true
   shortcutName: DeepSeek Harness
   installerLanguages:
-    - 1033
-  language: 1033
+    - zh_CN
+    - en_US
+  language: 2052
   deleteAppDataOnUninstall: false
   artifactName: DeepSeek-Harness-Setup-${version}-win-x64.exe
 mac:
