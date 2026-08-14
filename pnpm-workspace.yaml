@@ -1,0 +1,8 @@
+packages:
+  - "."
+allowBuilds:
+  electron: true
+  electron-winstaller: true
+  esbuild: true
+minimumReleaseAge: 0
+strictDepBuilds: true

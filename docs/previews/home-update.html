@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>DeepSeek Harness</title>
+    <link rel="stylesheet" href="../../resources/loading/styles.css" />
+    <style>
+      html,
+      body {
+        min-height: 840px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <main class="frame">
+      <div class="lang-switch">
+        <button type="button" class="active">EN</button>
+        <button type="button">中文</button>
+      </div>
+      <header class="mast">
+        <p class="eyebrow">Local agent runtime</p>
+        <h1>Harness</h1>
+        <p class="sub">When the runtime is ready, click Start to enter.</p>
+      </header>
+      <section class="status-card">
+        <div class="lamp-row">
+          <span class="lamp" data-phase="updating"></span>
+          <div>
+            <p class="phase">updating</p>
+            <p class="detail">Updating the program</p>
+          </div>
+        </div>
+        <dl class="meta">
+          <div>
+            <dt>URL</dt>
+            <dd>—</dd>
+          </div>
+          <div class="workspace-row">
+            <dt>Workspace</dt>
+            <dd>
+              <span>D:\work\my-project</span>
+              <button type="button" class="inline" disabled>Change</button>
+            </dd>
+          </div>
+          <div>
+            <dt>Version</dt>
+            <dd>0.1.0-rc.6 (bundled)</dd>
+          </div>
+        </dl>
+        <div class="actions">
+          <button type="button" class="primary" disabled>Start</button>
+          <button type="button" disabled>Update</button>
+        </div>
+      </section>
+      <section class="log-panel">
+        <div class="log-head">
+          <span>Runtime log</span>
+          <span>14:09:01</span>
+        </div>
+        <pre id="log">Checking npm for a newer @deepseek-ai/dsh
+Installed 0.1.0-rc.6; registry latest 0.1.0-rc.7
+Installing @deepseek-ai/dsh@0.1.0-rc.7</pre>
+      </section>
+    </main>
+  </body>
+</html>

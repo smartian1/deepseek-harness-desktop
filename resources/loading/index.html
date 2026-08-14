@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DeepSeek Harness</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <main class="frame">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button id="lang-en" type="button" data-locale="en">EN</button>
+        <button id="lang-zh" type="button" data-locale="zh">中文</button>
+      </div>
+      <header class="mast">
+        <p id="eyebrow" class="eyebrow">Local agent runtime</p>
+        <h1>Harness</h1>
+        <p id="subtitle" class="sub">When the runtime is ready, click Start to enter.</p>
+      </header>
+
+      <section class="status-card">
+        <div class="lamp-row">
+          <span id="lamp" class="lamp" data-phase="idle"></span>
+          <div>
+            <p id="phase-label" class="phase">idle</p>
+            <p id="detail" class="detail">Waiting</p>
+          </div>
+        </div>
+        <dl class="meta">
+          <div>
+            <dt id="label-url">URL</dt>
+            <dd id="url">—</dd>
+          </div>
+          <div class="workspace-row">
+            <dt id="label-workspace">Workspace</dt>
+            <dd>
+              <span id="workspace" title="">—</span>
+              <button id="choose-workspace" type="button" class="inline">Change</button>
+            </dd>
+          </div>
+          <div>
+            <dt id="label-version">Version</dt>
+            <dd id="version">—</dd>
+          </div>
+        </dl>
+        <div class="actions">
+          <button id="enter" type="button" class="primary" disabled>Start</button>
+          <button id="update" type="button">Update</button>
+          <button id="retry" type="button" hidden>Restart</button>
+        </div>
+      </section>
+
+      <section class="log-panel" aria-label="runtime log">
+        <div class="log-head">
+          <span id="log-label">Runtime log</span>
+          <span id="clock"></span>
+        </div>
+        <pre id="log"></pre>
+      </section>
+    </main>
+    <script src="./i18n.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

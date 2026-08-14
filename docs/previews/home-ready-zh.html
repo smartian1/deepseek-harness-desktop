@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>DeepSeek Harness</title>
+    <link rel="stylesheet" href="../../resources/loading/styles.css" />
+    <style>
+      html,
+      body {
+        min-height: 840px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <main class="frame">
+      <div class="lang-switch">
+        <button type="button">EN</button>
+        <button type="button" class="active">中文</button>
+      </div>
+      <header class="mast">
+        <p class="eyebrow">Local agent runtime</p>
+        <h1>Harness</h1>
+        <p class="sub">运行时准备完成后，点击启动进入。</p>
+      </header>
+      <section class="status-card">
+        <div class="lamp-row">
+          <span class="lamp" data-phase="ready"></span>
+          <div>
+            <p class="phase">ready</p>
+            <p class="detail">已就绪，点击启动进入</p>
+          </div>
+        </div>
+        <dl class="meta">
+          <div>
+            <dt>URL</dt>
+            <dd>http://127.0.0.1:3080</dd>
+          </div>
+          <div class="workspace-row">
+            <dt>工作区</dt>
+            <dd>
+              <span>D:\work\my-project</span>
+              <button type="button" class="inline">更改</button>
+            </dd>
+          </div>
+          <div>
+            <dt>版本</dt>
+            <dd>0.1.0-rc.6（内置）</dd>
+          </div>
+        </dl>
+        <div class="actions">
+          <button type="button" class="primary">启动</button>
+          <button type="button">更新程序</button>
+        </div>
+      </section>
+      <section class="log-panel">
+        <div class="log-head">
+          <span>运行日志</span>
+          <span>14:08:22</span>
+        </div>
+        <pre id="log">Using bundled sidecar 0.1.0-rc.6
+Probing for an existing dsh web server
+Ready at http://127.0.0.1:3080</pre>
+      </section>
+    </main>
+  </body>
+</html>

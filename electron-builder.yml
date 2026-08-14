@@ -1,0 +1,65 @@
+appId: ai.deepseek.harness.desktop
+productName: DeepSeek Harness
+copyright: MIT
+asar: true
+directories:
+  output: release
+  buildResources: resources
+files:
+  - dist/**/*
+  - resources/loading/**/*
+  - resources/preload/**/*
+  - resources/icon.png
+  - package.json
+extraResources:
+  - from: resources/icon.png
+    to: icon.png
+  # createFilter() drops a top-level "node_modules" directory. The sidecar
+  # tree is copied in afterPack (robocopy on Windows) instead.
+  - from: resources/runtime
+    to: runtime
+    filter:
+      - "**/*"
+      - "!node_modules"
+      - "!node_modules/**"
+      - "!**/*.map"
+      - "!**/node_modules/.cache/**"
+      - "!**/node_modules/.package-lock.json"
+      - "!node/node_modules/npm/docs/**"
+      - "!node/node_modules/npm/man/**"
+      - "!node/**/*.md"
+afterPack: ./scripts/after-pack.cjs
+compression: maximum
+win:
+  icon: resources/icon.png
+  target:
+    - target: nsis
+      arch:
+        - x64
+  signAndEditExecutable: false
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  allowElevation: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: DeepSeek Harness
+  installerLanguages:
+    - zh_CN
+    - en_US
+  language: zh_CN
+  deleteAppDataOnUninstall: false
+  artifactName: DeepSeek-Harness-Setup-${version}-win-x64.exe
+mac:
+  icon: resources/icon.png
+  category: public.app-category.developer-tools
+  target:
+    - dmg
+linux:
+  icon: resources/icon.png
+  target:
+    - AppImage
+  category: Development
+forceCodeSigning: false
+artifactName: "${productName}-${version}-${os}-${arch}.${ext}"
